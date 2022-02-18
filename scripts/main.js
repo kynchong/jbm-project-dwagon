@@ -26,7 +26,7 @@ const swiper = new Swiper('.swiper', {
 /* EVENT DELEGATION HANDLER */
 const main = document.querySelector("main");
 const modal = document.querySelector(".carousel-modal");
-const modalClose = document.querySelector(".carousel-modal-close");
+const closeCarousel = document.querySelector(".carousel-modal-close");
 const swiperWrapper = document.querySelector(".swiper-wrapper");
 const selectedItem = "gallery-item-anchor";
 
@@ -64,7 +64,7 @@ const toggleModal = (e) => {
 
         // shows modal
         modal.style.display = "flex";
-    } else if (e.target == modal || e.target == modalClose) {
+    } else if (e.target == modal || e.target == closeCarousel) {
         // hides modal
         modal.style.display = "none";
 
