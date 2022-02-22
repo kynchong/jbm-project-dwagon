@@ -84,7 +84,7 @@ main {
 .main-splash {
     position: relative;
     width: 100vw;
-    height: 70vh;
+    height: 100vh;
     background-color: white;
     box-sizing: border-box;
 
@@ -99,8 +99,21 @@ main {
     background-position-x: left;
     background-position-y: center;
 
-    font-size: 8vmin;
     text-align: center;
+}
+
+.main-splash h1 {
+    font-size: 8vmin;
+}
+
+.main-splash-next-page {
+    position: absolute;
+    font-size: 3rem;
+    bottom: 2rem;
+
+    animation: bounce 0.5s infinite;
+    animation-direction: alternate-reverse;
+    transition: 0.5s;
 }
 
 .gallery-title {
@@ -150,14 +163,14 @@ main {
 
     background-size: cover;
     background-position: center;
-    transition: all 0.25s;
+    transition: background-color 0.1s;
 
-    background-color: rgba(0,0,0,0.5);
-    background-blend-mode: initial;
+    background-blend-mode: darken;
+    background-color: rgba(0,0,0,0.0);    
 }
 
 .gallery-item-anchor:hover {
-    background-blend-mode: darken;
+    background-color: rgba(0,0,0,0.5);
 }
 
 .carousel-images {
@@ -221,6 +234,30 @@ main {
     text-align: center;
     font-size: 1rem;
 }
+
+/* FOOTER */
+footer {
+    height: 10vh;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+footer span {
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Animations */
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(1rem);
+    }
+  }
 
 /* Media Queries */
 @media screen and (max-width: 500px) {

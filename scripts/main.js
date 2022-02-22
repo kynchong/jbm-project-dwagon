@@ -74,3 +74,14 @@ const toggleModal = (e) => {
 }
 
 main.addEventListener('click', toggleModal);
+
+/* Top of window scroll effect */
+const scrollFunction = () => {
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        document.querySelector(".main-splash-next-page").style.opacity = 0;
+    } else {
+        document.querySelector(".main-splash-next-page").style.opacity = 1;
+    }
+}
+
+window.onscroll = () => scrollFunction();
