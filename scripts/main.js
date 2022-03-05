@@ -7,6 +7,7 @@ const swiper = new Swiper('.swiper', {
     // If we need pagination
     pagination: {
         el: '.swiper-pagination',
+        type: "fraction",
     },
 
     // Navigation arrows
@@ -24,11 +25,12 @@ const swiper = new Swiper('.swiper', {
 });
 
 /* EVENT DELEGATION HANDLER */
+const body = document.querySelector("body");
 const main = document.querySelector("main");
-const modal = document.querySelector(".carousel-modal");
-const closeCarousel = document.querySelector(".carousel-modal-close");
+const imageModal = document.querySelector(".carousel-modal");
+const closeCarouselButton = document.querySelector(".carousel-modal-close");
 const swiperWrapper = document.querySelector(".swiper-wrapper");
-const selectedItem = "gallery-item-anchor";
+const selectedGalleryImage = "gallery-item-anchor";
 
 // Swiper element
 const getSwiperElement = (url, caption) => {
@@ -44,44 +46,35 @@ const getSwiperElement = (url, caption) => {
 }
 
 // Toggles display of carousel modal and associated images
-const toggleModal = (e) => {
+const toggleModal = (touchEvent) => {
+    touchEvent.preventDefault();
     // Acquire links for carousel images
-    if (e.target.className == selectedItem) {
-        let target = e.target;
+    if (touchEvent.target.className == selectedGalleryImage) {
+        let target = touchEvent.target;
         let children = target.children;
 
         // reset swiper
-        swiper.setProgress(0);
-        swiper.slideReset();
+        swiper.removeAllSlides();
 
         // Send image urls to get a swiper element to be appended to carousel
         for (child of children) {
-            console.log(child);
             let src = child.getAttribute("data-src");
             let caption = child.getAttribute("alt");
             swiperWrapper.append(getSwiperElement(src, caption));
         }
 
         // shows modal
-        modal.style.display = "flex";
-    } else if (e.target == modal || e.target == closeCarousel) {
+        imageModal.style.display = "flex";
+        body.classList.toggle("noscroll");
+
+    } else if (touchEvent.target == imageModal || touchEvent.target == closeCarouselButton) {
         // hides modal
-        modal.style.display = "none";
+        imageModal.style.display = "none";
 
         // resets modal html
         swiperWrapper.innerHTML = "";
+        body.classList.toggle("noscroll");
     }
 }
 
-main.addEventListener('click', toggleModal);
-
-/* Top of window scroll effect */
-const scrollFunction = () => {
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-        document.querySelector(".main-splash-next-page").style.opacity = 0;
-    } else {
-        document.querySelector(".main-splash-next-page").style.opacity = 1;
-    }
-}
-
-window.onscroll = () => scrollFunction();
+main.addEventListener('click', toggleModal, false);
