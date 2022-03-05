@@ -65,7 +65,7 @@ main {
 .main-splash-img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover; /* Should be "content" */
     
     border: solid black;
     border-width: 3px;
@@ -150,6 +150,14 @@ main {
     background-color: rgba(0,0,0,0.9);
 }
 
+.carousel-modal > * {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 .carousel-modal-close {
     align-self: center;
     cursor: pointer;
@@ -168,6 +176,7 @@ main {
     width: 100%;
     height: 100%;
 }
+
 
 .swiper-wrapper {
     width: 100%;
