@@ -16,14 +16,7 @@ const swiper = new Swiper('.swiper', {
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
-    },
-
-    // And if we need scrollbar
-    /*
-    scrollbar: {
-        el: '.swiper-scrollbar',
-    },
-    */
+    }
 });
 
 
@@ -32,7 +25,7 @@ const body = document.querySelector("body");
 const main = document.querySelector("main");
 const imageModal = document.querySelector(".carousel-modal");
 const closeCarouselButton = document.querySelector(".carousel-modal-close");
-const swiperWrapper = document.querySelector(".swiper-wrapper");
+const swiperWrapper = document.querySelector(".swiper .swiper-wrapper");
 const selectedGalleryImage = "gallery-item-anchor";
 
 /* Returns a "slide" to append to Swiper carousel */

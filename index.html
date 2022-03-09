@@ -21,23 +21,38 @@
 <body>
     <!-- HEADER -->
     <header>
-        <div class="header-logo"><a href=#>Solitary Scales</a></div>
+        <div class="header-logo">
+            <a href=#>
+                <img src="./assets/face_icon.png" alt="logo">
+                <p>Solitary<br>Scales</p>
+            </a>
+        </div>
+
+        <!-- Additions -->
+        <ul class="header-links">
+            <li>Home</li>
+            <li>Store</li>
+            <li>Contact</li>
+        </ul>
+
     </header>
 
     <!-- MAIN -->
     <main>
 
-        <section class="main-splash">
-            <img class="main-splash-img" src="./assets/peekaboo.png" alt="Solitary Scales peeking at you.">
+        <section class="hero">
+            <img class="hero-img" style="object-position: left" src="./assets/peekaboo.png" alt="Solitary Scales peeking at you.">
         </section>
 
         <h1 class="gallery-title">Scales' Adventures!</h1>
+        <hr class="gallery-divider">
+
         <section class="gallery">
             <div class="gallery-item">
-                <a class="gallery-item-anchor" style="background-image: url('assets/peekaboo.png');"
+                <a class="gallery-item-anchor" style="background-image: url('assets/face_icon.png');"
                     alt="Dragon peeky!">
-                    <img class="carousel-images swiper-lazy" data-src="assets/peekaboo.png" alt="Sample image one!">
-                    <img class="carousel-images swiper-lazy" data-src="assets/peekaboo.png" alt="Sample image two!">
+                    <img class="carousel-images swiper-lazy" data-src="assets/peekaboo.png" alt="Peekaboo!">
+                    <img class="carousel-images swiper-lazy" data-src="assets/face_icon.png" alt="Face Icon">
                 </a>
             </div>
                         
@@ -122,7 +137,7 @@
         </section>
 
         <section class="carousel-modal">
-            <button class="carousel-modal-close">←</button>
+            <button class="carousel-modal-close">‹ Back</button>
             <!-- IMAGE SLIDER -->
             <div class="swiper">
                 <!-- Additional required wrapper -->
